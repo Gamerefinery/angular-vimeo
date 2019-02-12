@@ -100,6 +100,7 @@
           responsive: '@',
           playerId: '@',
           fullscreen: '=',
+          background: '='
         },
         link: function(scope, element, attrs) {
 
@@ -149,8 +150,9 @@
           function buildPlayer(opt, p) {
             var src = 'src="https://player.vimeo.com/video/' + opt.videoId;
             var params = buildParams(p, opt, '&', false);
+            var background = opt.background ? 1 : 0;
 
-            return src + '?' + params + (params ? '&' : '') + 'api=1&player_id=' + opt.playerId + '" ';
+            return src + '?' + params + (params ? '&' : '') + 'api=1&player_id=' + opt.playerId + '"?background=' + background;
           }
 
           function buildIframe(opt, iframeStyle, wrapperStyle) {
